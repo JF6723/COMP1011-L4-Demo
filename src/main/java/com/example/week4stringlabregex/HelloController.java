@@ -30,7 +30,14 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         txtPhoneNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-
+            if (newValue.matches("[2-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]"))
+            {
+                welcomeText.setText(String.format("%s is a good phone number.",newValue));
+            }
+            else
+            {
+                welcomeText.setText("Please follow the instructions below");
+            }
         });
 
     }
